@@ -34,7 +34,7 @@ def describe_numeric_features(df_spark, features=None):
 
         stats = df_spark.select(
             spark_stddev(col(col_name)).alias("std"),
-            skewness(col(col_name)).alias("skew")
+            spark_skewness(col(col_name)).alias("skew")
         ).collect()[0]
         std = stats["std"]
         skew = stats["skew"]
